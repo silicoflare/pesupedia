@@ -4,4 +4,6 @@ The AIML branch, or rather the CSE (AI&ML) branch is a rather new branch, and is
 
 ## Overview (by an AIML Student)
 
-[Semester 4](/resources/aiml-sem4-syllabus.pdf)
+[Semester 3 Syllabus](/public/aiml-sem3-syllabus.pdf)
+
+[Semester 4 Syllabus](/public/aiml-sem4-syllabus.pdf)
