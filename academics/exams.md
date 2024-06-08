@@ -5,7 +5,7 @@ There are three types of examinations/tests held in PES:
 Normal assignments of around 20 marks, conducted in the class and written in blue books. 1 assignment is conducted for every unit, and the aggregate marks are considered for the final score.
 
 ::: info 
-There are no lab exams for Physics or Chemistry. Only for C and Python. In Physics, however, there may be a 30-mark lab MCQ.
+There are lab exams for Physics, Chemistry, C and Python.
 :::
 
 ## ISA (Internal Semester Assessment)

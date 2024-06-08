@@ -22,18 +22,18 @@
             "C": 7,
             "D": 6,
             "E": 5,
-            "F": 4,
+            "F": 0,
         };
         return sgpaGrades.value.map(x => x in mapping ? mapping[x] : 0);
     });
 
     function addSubject()   {
-        sgpaGrades.value.push('S');
-        sgpaCredits.value.push(6);
+        sgpaGradesBG.value.push(6);
+        sgpaCredits.value.push(0);
     }
 
     function deleteSubject(index: number)   {
-        sgpaGrades.value.splice(index, 1);
+        sgpaGradesBG.value.splice(index, 1);
         sgpaCredits.value.splice(index, 1);
     }
 
@@ -121,7 +121,7 @@ $$ CGPA = \dfrac{\sum (credits_{sem} \times sgpa_{sem})}{\sum credits_{all\_sems
         <th class="text-center"></th>
         <th class="text-center">Grade</th>
         <th class="text-center">Credits</th>
-        <th class="text-center">Grade Points</th>
+        <!-- <th class="text-center">Grade Points</th> -->
     </tr>
     <tr v-for="(data,index) in sgpaGrades" :key="index" class="w-full">
         <td :style="{ backgroundColor: (isDark ? '#1B1B1F' : 'white') }">
@@ -132,18 +132,19 @@ $$ CGPA = \dfrac{\sum (credits_{sem} \times sgpa_{sem})}{\sum credits_{all\_sems
         <td :style="{ backgroundColor: isDark ? '#1B1B1F' : 'white' }" class="w-1/2">
             <div style="display: flex; justify-content: center; align-items: center; width: 100%;">
                 <button @click="sgpaGradesBG[index] = (sgpaGradesBG[index] > 0) ? sgpaGradesBG[index] - 1 : sgpaGradesBG[index]" style="padding: 2px; background-color: #161618; border-radius: 5px; width: 3rem; height: 2rem; font-size: 18px;">-</button>
-                <span style="width: 100%; margin: auto; text-align: center; background-color: transparent;">{{ sgpaGrades[index] }}</span>
+                <input type="text" class="w-full text-center text-lg" v-model="sgpaGrades[index]" />
                 <button @click="sgpaGradesBG[index] = (sgpaGradesBG[index] < 6) ? sgpaGradesBG[index] + 1 : sgpaGradesBG[index]" style="padding: 2px; background-color: #161618; border-radius: 5px; width: 3rem; height: 2rem; font-size: 18px;">+</button>
             </div>
         </td>
         <td :style="{ backgroundColor: isDark ? '#1B1B1F' : 'white' }" class="w-full">
             <div style="display: flex; justify-content: center; align-items: center; width: 100%;">
                 <button @click="sgpaCredits[index] = (sgpaCredits[index] > 0) ? sgpaCredits[index] - 1 : sgpaCredits[index]" style="padding: 2px; background-color: #161618; border-radius: 5px; width: 3rem; height: 2rem; font-size: 18px;">-</button>
-                <span style="width: 100%; margin: auto; text-align: center; background-color: transparent;">{{ sgpaCredits[index] }}</span>
+                <!-- <span style="width: 100%; margin: auto; text-align: center; background-color: transparent;">{{ sgpaCredits[index] }}</span> -->
+                <input type="text" class="w-full text-center text-lg" v-model="sgpaCredits[index]" />
                 <button @click="sgpaCredits[index] = (sgpaCredits[index] < 10) ? sgpaCredits[index] + 1 : sgpaCredits[index]" style="padding: 2px; background-color: #161618; border-radius: 5px; width: 3rem; height: 2rem; font-size: 18px;">+</button>
             </div>
         </td>
-        <td :style="{ backgroundColor: isDark ? '#1B1B1F' : 'white' }" class="w-full">{{ sgpaGradePoints[index] }}</td>
+        <!-- <td :style="{ backgroundColor: isDark ? '#1B1B1F' : 'white' }" class="w-full">{{ sgpaGradePoints[index] }}</td> -->
     </tr>
 </table>
 
@@ -169,12 +170,12 @@ $$ CGPA = \dfrac{\sum (credits_{sem} \times sgpa_{sem})}{\sum credits_{all\_sems
         </td>
         <td :style="{ backgroundColor: isDark ? '#1B1B1F' : 'white' }" class="w-1/2">
             <div class="w-full flex flex-row items-center justify-center">
-                <input type="number" min="0.0" max="10.0" step="0.1" class="w-1/4 border text-center text-lg" v-model="cgpaGrades[index]" />
+                <input type="number" min="0.0" max="10.0" step="0.1" class="w-1/4 text-center text-lg" v-model="cgpaGrades[index]" />
             </div>
         </td>
         <td :style="{ backgroundColor: isDark ? '#1B1B1F' : 'white' }" class="w-full">
             <div style="display: flex; justify-content: center; align-items: center; width: 100%;">
-                <input type="number" class="w-1/4 border text-center text-lg" v-model="cgpaCredits[index]" />
+                <input type="number" class="w-1/4 text-center text-lg" v-model="cgpaCredits[index]" />
             </div>
         </td>
     </tr>
